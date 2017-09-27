@@ -1,0 +1,13 @@
+﻿@model ArtesMarciais.Models.Aluno
+@{
+    ViewBag.Title = "Detalhes Alunos";
+}
+
+<h3>Detalhes Aluno</h3>
+<ul>
+    <li><b>Id:</b> @Model.Id</li>
+    <li><b>Nome:</b> @Model.Nome</li>
+    <li><b>Cpf:</b> @Model.Cpf</li>
+    <li><b>Faixa:</b> @Model.Faixa.Nome</li>
+    <li><b>Tipo de Associação:</b> @Model.TipoDeAssociacao.Nome</li>
+</ul>

@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Alunos";
+}
+
+@model IEnumerable<ArtesMarciais.Models.Aluno>
+
+@using (Html.BeginForm())
+{
+    <center>
+        <h2>Alunos Cadastrados</h2>
+    </center>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Cpf</th>
+                <th>Faixa</th>
+                <th>Tipo de Associação</th>
+                <th style="text-align: center">#</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int cont = 0; }
+            @foreach (var alunos in Model)
+            {
+                <tr>
+                    <th scope="row">@(++cont)</th>
+                    <td>@alunos.Id</td>
+                    <td>@alunos.Nome</td>
+                    <td>@alunos.Cpf</td>
+                    <td>@alunos.Faixa.Nome</td>
+                    <td>@alunos.TipoDeAssociacao.Nome</td>
+
+                    <td style="text-align:center">
+                        <button class="btn btn-primary" formaction="Aluno/Details/@alunos.Id">Detalhes</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+                }

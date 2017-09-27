@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Faixas";
+}
+
+@model IEnumerable<ArtesMarciais.Models.Faixa>
+
+@using (Html.BeginForm())
+{
+    <center>
+        <h2>Faixas Cadastradas</h2>
+    </center>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Grau</th>
+                <th style="text-align: center">#</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int cont = 0; }
+            @foreach (var faixas in Model)
+            {
+                <tr>
+                    <th scope="row">@(++cont)</th>
+                    <td>@faixas.Id</td>
+                    <td>@faixas.Nome</td>
+                    <td>@faixas.Grau</td>
+
+                    <td style="text-align:center">
+                        <button class="btn btn-primary" formaction="Faixa/Details/@faixas.Id">Detalhes</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+                }

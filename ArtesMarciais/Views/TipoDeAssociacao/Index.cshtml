@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Tipos de Associação";
+}
+
+@model IEnumerable<ArtesMarciais.Models.TipoDeAssociacao>
+
+@using (Html.BeginForm())
+{
+    <center>
+        <h2>Tipos de Associação Cadastrados</h2>
+    </center>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Período</th>
+                <th>Mensalidade</th>
+                <th style="text-align: center">#</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int cont = 0; }
+            @foreach (var tipoAssociacao in Model)
+            {
+                <tr>
+                    <th scope="row">@(++cont)</th>
+                    <td>@tipoAssociacao.Id</td>
+                    <td>@tipoAssociacao.Nome</td>
+                    <td>@tipoAssociacao.Periodo</td>
+                    <td>@tipoAssociacao.Mensalidade</td>
+
+                    <td style="text-align:center">
+                        <button class="btn btn-primary" formaction="TipoDeAssociacao/Details/@tipoAssociacao.Id">Detalhes</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+                }
